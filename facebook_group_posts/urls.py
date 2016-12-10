@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from fbgroup_posts.views import PostView
 
 urlpatterns = [
+    url(r'^$', PostView.as_view(), name='home'),
     url(r'^admin/', admin.site.urls),
 ]

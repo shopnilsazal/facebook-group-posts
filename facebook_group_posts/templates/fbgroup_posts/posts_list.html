@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        {% for post in post_list %}
+            <div class="box">
+                <article class="media">
+
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>{{ post.from_name }}</strong>
+                                <small>{{ post.created_time }}</small>
+                                <br>
+                                {{ post.message }}
+                            </p>
+                        </div>
+                        <nav class="level">
+                            <div class="level-left">
+                    <span class="level-item">
+                        Likes: <span class="tag">{{ post.likes }}</span>
+                    </span>
+                                <span class="level-item">
+                        Comments: <span class="tag">{{ post.comments }}</span>
+                    </span>
+                                <a class="level-item button" href="{{ post.permalink }}" target="_blank">
+                                    Post Link
+                                </a>
+
+                            </div>
+                        </nav>
+                    </div>
+
+                </article>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
